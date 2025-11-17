@@ -81,24 +81,24 @@ Key DAX measures created:
 
 ### 1. Geographic Distribution
 * Treemap showing respondent count by country
-** USA, India, Canada, UK dominate.
+   * USA, India, Canada, UK dominate.
 
 ### 2. Salary by Job Title
 * Bar chart:
-** Data Scientist highest average salary
-** Data Engineer, Architect follow
-** Analyst & entry-level lowest
+   * Data Scientist highest average salary
+   * Data Engineer, Architect follow
+   * Analyst & entry-level lowest
 
 ### 3. Favorite Programming Language
 * Stacked bar chart:
-** Python overwhelmingly preferred
-** R, SQL, JavaScript follow.
+   * Python overwhelmingly preferred
+   * R, SQL, JavaScript follow.
 
 ### 4. Difficulty Breaking Into Data
 * Donut chart reveals:
-** 42.7%: Neither easy nor hard
-** 24.7%: Difficult
-** Very few found it "very easy".
+   * 42.7%: Neither easy nor hard
+   * 24.7%: Difficult
+   * Very few found it "very easy".
 
 ### 5. Happiness Metrics
 * Gauge charts:
