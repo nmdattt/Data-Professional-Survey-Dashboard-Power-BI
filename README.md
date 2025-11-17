@@ -1,77 +1,128 @@
-# Sales Insight Dashboard – Power BI
+# Data Professional Survey Breakdown – Power BI Dashboard
 
 ## Overview
-This project showcases end-to-end data analytics, including data cleaning, transformation, exploratory data analysis (EDA), KPI development, and dashboard visualization using Microsoft Power BI.
+This project analyzes a global Data Professional Survey and visualizes key insights about job roles, salaries, countries, skills, and career satisfaction.
 
-The final dashboard enables business teams to monitor performance, identify anomalies, and make data-driven decisions.
+Using Power BI, the project covers data cleaning (Power Query), data modeling, KPI creation (DAX), and dashboard storytelling.
+The final dashboard helps users understand trends in the data industry and support data-driven career or hiring decisions.
 
 ## Dataset
-**Source:** `raw_data.xlsx`
+The dataset contains 630 survey responses, including:
 
-**Includes:**
-* Sales transactions
-* Product information
-* Customer & regional data
-* Discount and profitability fields
+* Job title
+* Salary (USD)
+* Country
+* Age
+* Preferred programming language
+* Education level
+* Career switch information
+* Happiness ratings
+* Difficulty breaking into the data field
+* Time taken / time spent answering the survey
 
-Pre-processing steps include cleaning missing values, removing duplicates, standardizing formats, and building analytical tables.
+## Data Cleaning & Transformation (Power Query)
+Below is a summary of the cleaning pipeline you implemented — reconstructed from APPLIED STEPS.
 
-## Data Preparation & Modeling
-Key steps performed before visualization:
+### 1. Column cleanup & restructuring
+* Removed unnecessary columns (multiple stages)
+* Duplicated columns for safe transformation
+* Reordered columns for better schema organization
 
-### Data Cleaning
-* Handled missing values, inconsistent date formats, non-standard product categories
-* Validated numeric fields (revenue, discount, profit)
+### 2. Data splitting (extensive use of Split Column)
+* Used several split operations:
+    * `Split Column by Delimiter`
+    * `Split Column by Character Count`
+* Purpose:
+    * Extract clean values from multi-response fields
+    * Separate combined text fields
+    * Normalize values for modeling
 
-### Data Transformation
-* Created calculated columns for margin, profit %, discount tier
-* Built star-schema style data model (Fact + Dimension tables)
+### 3. Data type corrections
+* Converted column types throughout the cleaning flow:
+    * **Numeric** → salary, age, ratings
+    * **Text** → country, title, language
+    * **Date/time** → time spent, survey timestamp
 
-### KPI Development (DAX)
-Implemented DAX measures for:
+### 4. Value normalization & replacement
+* Performed multiple value corrections:
+    * Standardized categories
+    * Replaced inconsistent answers
+    * Fixed spelling / formatting variations
 
-* Total Revenue, Total Profit, Cost
-* Average Discount %, Profit Margin
-* YoY/ MoM growth
-* Performance by Region, Product, Channel
+### 5. Custom transformations
+* Used `Added Custom` steps to:
+    * Extract new columns
+    * Recalculate fields
+    * Add logical/derived fields
 
-## Dashboard Features
-The interactive Power BI dashboard includes:
+### 6. Filtering & final cleanup
+* Removed rows that do not meet analysis criteria
+* Filtered out blanks, invalid entries, or irrelevant categories
 
-### 1. Executive KPI Summary
-* Revenue, Profit, Margin, Discounts
-* Real-time performance indicators
-* Automatic refresh support
+## Data Modeling
+A clean, analysis-ready model was constructed:
 
-### 2. Sales Performance Analysis
-* Regional comparison
-* Product-level profitability
-* Top/Bottom performing SKUs
+* **Fact table:** survey responses
+* **Dimension fields:** job title, country, education, gender, programming language
+* Proper data types, hierarchies, and relationships
 
-### 3. Customer Insights
-* Buying patterns
-* Customer segments
-* Repeat purchase behavior
+## KPI Development (DAX)
+Key DAX measures created:
 
-### 4. Trend & Time Intelligence
-* MoM / QoQ sales trends
-* Forecasting using built-in analytics
-* Anomaly detection on sales spikes/dips
+* Average Age
+* Average Yearly Salary
+* Count of Survey Takers
+* Difficulty Score
+* Happiness with Work–Life Balance
+* Happiness with Salary
+* KPI gauges (0–10 rating scale)
 
-## Key Insights Highlighted
-* Region A contributes 42% of total revenue but shows declining MoM growth.
-* Products in Category B have high volume but low margin, suggesting an optimization opportunity.
-* Discount levels above 20% do not significantly increase sales volume → profit leakage risk.
+## Dashboard Highlights
+
+### 1. Geographic Distribution
+* Treemap showing respondent count by country
+* → USA, India, Canada, UK dominate.
+
+### 2. Salary by Job Title
+* Bar chart:
+* → Data Scientist highest average salary
+* → Data Engineer, Architect follow
+* → Analyst & entry-level lowest
+
+### 3. Favorite Programming Language
+* Stacked bar chart:
+* → Python overwhelmingly preferred
+* → R, SQL, JavaScript follow.
+
+### 4. Difficulty Breaking Into Data
+* Donut chart reveals:
+* → 42.7%: Neither easy nor hard
+* → 24.7%: Difficult
+* → Very few found it "very easy".
+
+### 5. Happiness Metrics
+* Gauge charts:
+    * Work–Life Balance: 5.74 / 10
+    * Salary: 4.27 / 10
+* **Insight:** Salary satisfaction is significantly lower.
+
+## Key Insights
+* Python dominates as the primary programming language for all roles.
+* Data Scientists earn the highest salaries, confirming technical demand.
+* Breaking into data is moderately challenging for most respondents.
+* Salary satisfaction (4.27) is significantly lower than work-life balance (5.74).
+* Survey takers are fairly young (avg age ~29.9), with a high proportion of career switchers.
+
+## Tools & Technologies
+* Power BI
+* Power Query (M language)
+* DAX
+* Excel
+* Data modeling
+* Dashboard design & storytelling
 
 ## How to Use
-1.  Clone/download the repository.
-2.  Open the `.pbix` file using Power BI Desktop.
-3.  Refresh data source if needed.
-4.  Explore the dashboard through interactive filters and drill-downs.
-
-## 🛠 Tools & Technologies
-* Power BI Desktop
-* DAX (for KPIs & measures)
-* Excel / Power Query (data preparation)
-* Data modeling (Star schema)
-* Data cleaning & validation
+1.  Download repository
+2.  Open `.pbix` file in Power BI Desktop
+3.  Refresh if needed
+4.  Explore using slicers & interactive features
