@@ -6,7 +6,7 @@ This project showcases end-to-end data analytics, including data cleaning, trans
 The final dashboard enables business teams to monitor performance, identify anomalies, and make data-driven decisions.
 
 ## Dataset
-**Source:** `Power BI - Final Project.xlsx`
+**Source:** `raw_data.xlsx`
 
 **Includes:**
 * Sales transactions
