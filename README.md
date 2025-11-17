@@ -21,7 +21,6 @@ The dataset contains 630 survey responses, including:
 * Time taken / time spent answering the survey
 
 ## Data Cleaning & Transformation (Power Query)
-Below is a summary of the cleaning pipeline you implemented — reconstructed from APPLIED STEPS.
 
 ### 1. Column cleanup & restructuring
 * Removed unnecessary columns (multiple stages)
